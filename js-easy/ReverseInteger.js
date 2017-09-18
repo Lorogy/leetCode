@@ -1,7 +1,10 @@
 /*Reverse digits of an integer.
 
 Example1: x = 123, return 321
-Example2: x = -123, return -321*/
+Example2: x = -123, return -321
+
+Note:
+The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.*/
 
 /**
  * @param {number} x
@@ -31,8 +34,8 @@ var intreverse = function(x) {
     return result;
 };
 
-var uintreverse=function(x){
-    if(isNaN(x)){
+var reverse=function(x){
+    if(isNaN(x)||(Math.abs(x))>(Math.pow(2,31))){
         return null;
     }
     else if(x==0){
@@ -40,7 +43,10 @@ var uintreverse=function(x){
     }
     else{
         var result=intreverse(Math.abs(x))
-        if(x>0){
+        if(result>(Math.pow(2,31))){
+            return 0;
+        }
+        else if(x>0){
             return result;
         }
         else{
@@ -49,4 +55,4 @@ var uintreverse=function(x){
     }
 };
 
-console.log(uintreverse(-123));
+console.log(reverse(13909))
