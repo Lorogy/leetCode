@@ -10,7 +10,7 @@ The input is assumed to be a 32-bit signed integer. Your function should return 
  * @param {number} x
  * @return {number}
  */
-var intreverse = function(x) {
+/*var intreverse = function(x) {
     var arr=[];
     var temp;
     var before=0;
@@ -32,6 +32,18 @@ var intreverse = function(x) {
     }
     
     return result;
+};*/
+
+var intreverse = function(x){
+  var r=0;
+  var l=x;
+  while(Math.floor(l/10)){
+      r=l%10+r*10;
+      l=Math.floor(l/10);
+  }
+  r=l%10+r*10;
+  l=Math.floor(l/10);
+  return r;
 };
 
 var reverse=function(x){
@@ -55,4 +67,4 @@ var reverse=function(x){
     }
 };
 
-console.log(reverse(13909))
+console.log(reverse(-100))
