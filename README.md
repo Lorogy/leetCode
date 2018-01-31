@@ -1,2 +1,4 @@
 # leetCode
-> javascript
+> javascript 
+
+- easy
