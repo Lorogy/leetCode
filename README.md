@@ -1,4 +1,6 @@
 # leetCode
-> javascript 
+> javascript
 
-- easy
+- <200
+- easy——(finish)
+- medium——(ing)
