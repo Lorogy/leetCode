@@ -4,20 +4,22 @@ shellsort(arr);
 console.log(arr);
 
 function shellsort(arr){
-  let d=Math.floor(arr.length/2);
-  while(d>=1){
+  let d=Math.floor(arr.length/2);// 第一次增量
+  while(d>=1){// 增量最小至1
     console.log(d);
-    for(let i=d+1;i<arr.length;i++){
-      for(let j=i;j>=0;j=j-d){
-        let temp=arr[j];
-        if(temp<arr[j-d]){
-          arr[j]=arr[j-d];
-          arr[j-d]=temp;
-        }
+    // 此增量下shell排序，从d+1开始
+    for(let i=d;i<arr.length;i++){
+      // <=i并且间隔为d的一组进行插入排序
+      let j=i-d;
+      let temp=arr[i];//待插入值
+      while(j>=0&&temp<arr[j]){//若比待插入值大，依次向后移
+        arr[j+d]=arr[j];
+        j=j-d;
       }
+      arr[j+d]=temp;//将待插入值插入正确位置
+      console.log(arr);
     }
-    console.log(arr);
-    d=Math.floor(d/2);
+    d=Math.floor(d/2);// 更新增量
   }
   return arr;
 }
